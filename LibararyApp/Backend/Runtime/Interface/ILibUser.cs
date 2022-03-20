@@ -17,7 +17,7 @@ namespace Application.Interface
 
         public Task<ApiResponse<GetUserDto>> GetUserById(int id);
 
-        public Task<ApiResponse<List<GetUserDto>>> AddUser(GetUserDto user);
+        public Task<ApiResponse<List<GetUserDto>>> AddUser(UpdateUserDto user);
 
         public  Task<ApiResponse<List<GetUserDto>>> GetUserWithMostIssuedBooks();
 

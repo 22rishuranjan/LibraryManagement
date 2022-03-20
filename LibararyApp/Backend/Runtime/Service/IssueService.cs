@@ -93,8 +93,6 @@ namespace Runtime.Service
             }
             return res;
         }
-
-
         public async Task<ApiResponse<GetIssueDto>> DeleteIssues(int id)
         {
             ApiResponse<GetIssueDto> res = new ApiResponse<GetIssueDto>();
@@ -120,7 +118,6 @@ namespace Runtime.Service
 
             return res;
         }
-
         public async Task<ApiResponse<GetIssueDto>> GetIssueById(int id)
         {
             ApiResponse<GetIssueDto> res = new ApiResponse<GetIssueDto>();
@@ -142,7 +139,6 @@ namespace Runtime.Service
 
             return res;
         }
-
         public async Task<ApiResponse<List<GetIssueDto>>> GetIssueByBookId(int id)
         {
          
@@ -166,9 +162,6 @@ namespace Runtime.Service
 
             return res;
         }
-
-
-
         public async Task<ApiResponse<List<GetIssueDto>>> GetIssueByUserId(int id)
         {
             ApiResponse<List<GetIssueDto>> res = new ApiResponse<List<GetIssueDto>>();
@@ -191,9 +184,6 @@ namespace Runtime.Service
 
             return res;
         }
-
-
-
         public async Task<ApiResponse<List<GetIssueDto>>> GetIssues()
         {
             ApiResponse<List<GetIssueDto>> res = new ApiResponse<List<GetIssueDto>>();
@@ -204,31 +194,5 @@ namespace Runtime.Service
 
             return res;
         }
-
-        //public async Task<ApiResponse<GetIssueDto>> UpdateIssues(UpdateBookDto issue, int id)
-        //{
-        //    ApiResponse<GetIssueDto> res = new ApiResponse<GetIssueDto>();
-
-        //    var _issue = await _context.Issues.FindAsync(id);
-        //    if (_issue == null)
-        //    {
-        //        res.Data = null;
-        //        res.Message = "Error: Issue can not be found!";
-        //        res.Success = false;
-        //        res.Status = 404;
-        //        return res;
-        //    }
-
-
-        //    _mapper.Map(issue, _issue);
-        //    await _context.SaveChangesAsync();
-        //    res.Data = _mapper.Map<GetIssueDto>(await _context.Issues.FindAsync(id));
-        //    res.Message = "Success, Book is successfully updated.";
-        //    res.Success = true;
-        //    return res;
-        //}
-
-
-        
     }
 }

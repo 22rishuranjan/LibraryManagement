@@ -18,14 +18,20 @@ namespace API.Controller
     {
 
         private readonly IIssue _issueService;
-        //private readonly DataContext _context;
-
-
-        public IssueController(IIssue issueService) //, DataContext context   ---- used via method dependency injection
+  
+        public IssueController(IIssue issueService) 
         {
             _issueService = issueService;
-            // _context = context;
+        
         }
+
+
+        #region CrudAPI
+        /* contains following APIS  
+               a. Get the list of issues
+               b. Get issue by Id
+               c. Create a new issue
+        */
 
 
         [HttpGet]
@@ -34,51 +40,38 @@ namespace API.Controller
             return HandleResult(await _issueService.GetIssues());
         }
 
-       
-
-
         [HttpGet("{id}")]
         public async Task<IActionResult> Issue(int id)
         {
             return HandleResult(await _issueService.GetIssueById(id));
         }
 
+        [HttpPost]
+        public async Task<IActionResult> Issue(AddIssueDto issue)
+        {
+            return HandleResult(await _issueService.AddBookIssue(issue));
+        }
+        #endregion
 
-        //[Route("MostIssued")]
-        //[Route("MostBorrowed")]
+        #region DriverAPI
+        /* contains following APIS  
+              a. Get the list of issues filtered by user id
+              b. Get the list of issues filtered by book id   
+        */
+
         [HttpGet("GetIssueByUserId/{id}")]
         public async Task<IActionResult> GetIssueByUserId(int id)
         {
             return HandleResult(await _issueService.GetIssueByUserId(id));
         }
 
-        //[Route("MostIssued")]
-        //[Route("MostBorrowed")]
+        
         [HttpGet("GetIssueByBookId/{id}")]
         public async Task<IActionResult> GetIssueByBookId(int id)
         {
             return HandleResult(await _issueService.GetIssueByBookId(id));
         }
-
-
-        //[HttpDelete("{id}")]
-        //public async Task<IActionResult> DeleteIssue(int id)
-        //{
-        //    return HandleResult(await _issueService.DeleteBooks(id));
-        //}
-
-        [HttpPost]
-
-        public async Task<IActionResult> Issue(AddIssueDto issue)
-        {
-            return HandleResult(await _issueService.AddBookIssue(issue));
-        }
-
-        //[HttpPut("{id}")]
-        //public async Task<IActionResult> Issue(int id, UpdateIssueDto act)
-        //{
-        //    return HandleResult(await _bookService.UpdateBooks(act, id));
-        //}
+        #endregion 
 
     }
 }

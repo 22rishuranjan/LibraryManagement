@@ -27,6 +27,15 @@ namespace LibraryApi.Controller
             // _context = context;
         }
 
+        #region CrudApi
+        /* contains following APIS  
+               a. Get the list of user
+               b. Get user information by user id
+               c. Create a new user
+               d. Update information on existing user
+               e. Delete an existing existing
+        */
+
         [HttpGet]
         public async Task<IActionResult> User()
         {
@@ -50,7 +59,7 @@ namespace LibraryApi.Controller
 
         [HttpPost]
 
-        public async Task<IActionResult> User(GetUserDto act)
+        public async Task<IActionResult> User(UpdateUserDto act)
         {
             return HandleResult(await _userService.AddUser(act));
         }
@@ -60,6 +69,14 @@ namespace LibraryApi.Controller
         {
             return HandleResult(await _userService.UpdateUsers(act, id));
         }
+        #endregion
+
+        #region DriverAPI
+        /* contains following APIS :
+             a. Get the list of user with most issued book
+             b. Get the list of user with most issued book filtered by time
+  
+       */
 
         [Route("MostIssued")]
         [Route("MostBorrowed")]
@@ -69,9 +86,9 @@ namespace LibraryApi.Controller
             return HandleResult(await _userService.GetUserWithMostIssuedBooks());
         }
 
-        [Route("MostIssued/{days}")]
-        [Route("MostBorrowed/{days}")]
-        [Route("MostIssuedByTime/{days}")]
+        [Route("MostIssued/{days:int}")]
+        [Route("MostBorrowed/{days:int}")]
+        [Route("MostIssuedByTime/{days:int}")]
         [HttpGet]
         public async Task<IActionResult> MostIssuedByTime(int days)
         {
@@ -79,7 +96,7 @@ namespace LibraryApi.Controller
             DateTime finishDate = DateTime.Now.ToLocalTime();
             return HandleResult(await _userService.GetUserWithMostIssuedBooksByTime(startDate, finishDate));
         }
-
+        #endregion
 
     }
 }

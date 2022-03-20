@@ -18,7 +18,7 @@ namespace API.Filters
             
             if (context.Exception !=null && context.Exception.Message != null)
             {
-                context.Result = new ObjectResult(new ApiResponse<ActionError> { Data = null, Message = context.Exception.Message, Success = false, Status=400 });
+                context.Result = new ObjectResult(new ApiResponse<ActionError> { Data = null, Message = context.Exception.InnerException.Message, Success = false, Status=400 });
                 context.ExceptionHandled = true;
 
             }

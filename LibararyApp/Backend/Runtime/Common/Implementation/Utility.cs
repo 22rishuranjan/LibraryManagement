@@ -1,5 +1,4 @@
 ﻿using Application.DTO;
-using Application.Interface;
 using Persistence;
 using System.Linq;
 
@@ -129,53 +128,55 @@ namespace Runtime.Common
             var book = _context.Books.Find(id);
 
             //var books = _context.Books.Where(i => i.BookId ==  id).ToList();
-            
-                var bookCount = book.Count;
-                //var issueRecords = _context.Issues.Where(i => i.BookId == id);
+
+            var bookCount = book.Count;
+            //var issueRecords = _context.Issues.Where(i => i.BookId == id);
 
 
-                var issueCount = _context.Issues.Where(i => i.BookId == id)
-                                           .Select(i => i.IssueId)
-                                           .Except(_context.Returns.Select(r => r.IssueId))
-                                           .Count();
+            var issueCount = _context.Issues.Where(i => i.BookId == id)
+                                       .Select(i => i.IssueId)
+                                       .Except(_context.Returns.Select(r => r.IssueId))
+                                       .Count();
 
-                
 
-                if (!(bookCount > issueCount))
+
+            if (!(bookCount > issueCount))
+            {
+
+                UpdateBookDto updateDto = new UpdateBookDto
                 {
+                    BookTitle = book.Title,
+                    isAvailable = false,
+                    Count = book.Count,
+                    Author = book.Author,
+                    Description = book.Description,
+                    Genre = book.Area
+                };
 
-                    UpdateBookDto updateDto = new UpdateBookDto
-                    {
-                        BookTitle = book.Title,
-                        isAvailable = false,
-                        Count = book.Count,
-                        Author = book.Author,
-                        Description = book.Description,
-                        Genre = book.Area
-                    };
+                //_bookService.UpdateBooks(updateDto, id);
 
-                    //_bookService.UpdateBooks(updateDto, id);
-
-
-                }
-                else
+                return updateDto;
+            }
+            else
+            {
+                UpdateBookDto updateDto = new UpdateBookDto
                 {
-                    UpdateBookDto updateDto = new UpdateBookDto
-                    {
-                        BookTitle = book.Title,
-                        isAvailable = true,
-                        Count = book.Count,
-                        Author = book.Author,
-                        Description = book.Description,
-                        Genre = book.Area
-                    };
+                    BookTitle = book.Title,
+                    isAvailable = true,
+                    Count = book.Count,
+                    Author = book.Author,
+                    Description = book.Description,
+                    Genre = book.Area
+                };
 
-                    // _bookService.UpdateBooks(updateDto, id);
-                }
+                // _bookService.UpdateBooks(updateDto, id);
+
+                return updateDto;
+            }
 
 
-                return new UpdateBookDto();
-            
+            return new UpdateBookDto();
+
 
 
             /*
@@ -229,7 +230,6 @@ namespace Runtime.Common
 
 
         }
-
 
         //*** :To check how many available copy of books are present
         public int GetAvailableCopy(int id)

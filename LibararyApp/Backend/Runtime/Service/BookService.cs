@@ -8,12 +8,11 @@ using Runtime.Common;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace Application.Service
 {
-    public class BookService :IBook
+    public class BookService : IBook
     {
         private readonly DataContext _context;
 
@@ -21,17 +20,14 @@ namespace Application.Service
 
         private readonly IUtility _utility;
 
-    
-      
         public BookService(DataContext context, IMapper mapper, IUtility utility)
         {
             _context = context;
             _mapper = mapper;
             _utility = utility;
-
         }
 
-        public async Task<ApiResponse<List<GetBookDto>>> AddBook(GetBookDto book)
+        public async Task<ApiResponse<List<GetBookDto>>> AddBook(UpdateBookDto book)
         {
             ApiResponse<List<GetBookDto>> res = new ApiResponse<List<GetBookDto>>();
             Book _book = _mapper.Map<Book>(book);
@@ -44,7 +40,6 @@ namespace Application.Service
 
             return res;
         }
-
         public async Task<ApiResponse<GetBookDto>> DeleteBooks(int id)
         {
             ApiResponse<GetBookDto> res = new ApiResponse<GetBookDto>();
@@ -70,12 +65,6 @@ namespace Application.Service
 
             return res;
         }
-
-        //public Task<ApiResponse<BookDto>> DeleteBooks(int id)
-        //{
-        //    throw new NotImplementedException();
-        //}
-
         public async Task<ApiResponse<GetBookDto>> GetBookById(int id)
         {
             ApiResponse<GetBookDto> res = new ApiResponse<GetBookDto>();
@@ -97,8 +86,6 @@ namespace Application.Service
 
             return res;
         }
-
-
         public async Task<ApiResponse<List<GetBookDto>>> GetBooks()
         {
             ApiResponse<List<GetBookDto>> res = new ApiResponse<List<GetBookDto>>();
@@ -109,7 +96,6 @@ namespace Application.Service
 
             return res;
         }
-
         public async Task<ApiResponse<GetBookDto>> UpdateBooks(UpdateBookDto book, int id)
         {
             ApiResponse<GetBookDto> res = new ApiResponse<GetBookDto>();
@@ -132,7 +118,6 @@ namespace Application.Service
             res.Success = true;
             return res;
         }
-
         public async Task<ApiResponse<List<GetBookDto>>> GetMostIssuedBooks()
         {
 
@@ -150,7 +135,7 @@ namespace Application.Service
             foreach (var issue in issues)
             {
                 if (highestCount <= issue.Count) highestCount = issue.Count;
-                    if (issue.Count >= highestCount)
+                if (issue.Count >= highestCount)
                 {
                     GetBookDto bookDto = new GetBookDto();
                     var book = await _context.Books.FindAsync(issue.Key);
@@ -158,8 +143,8 @@ namespace Application.Service
                     listBookDto.Add(bookDto);
                 }
             }
-            
-            
+
+
 
 
             if (listBookDto.Count > 0)
@@ -180,7 +165,6 @@ namespace Application.Service
 
             return res;
         }
-
         public async Task<ApiResponse<List<GetBookDto>>> GetOtherBooks(int bookId, int userId)
         {
 
@@ -199,7 +183,7 @@ namespace Application.Service
                 listBookDto.Add(bookDto);
 
             }
-         
+
             if (listBookDto.Count > 0)
             {
                 res.Data = listBookDto;
@@ -214,12 +198,10 @@ namespace Application.Service
                 res.Success = true;
                 res.Status = 200;
             }
-            
+
 
             return res;
         }
-
-
         public async Task<ApiResponse<List<GetBookDto>>> GetMostIssuedBooksByTime(DateTime sDate, DateTime fDate)
         {
 
@@ -250,7 +232,7 @@ namespace Application.Service
 
             if (listBookDto.Count > 0)
             {
-                res.Data = listBookDto;            
+                res.Data = listBookDto;
                 res.Message = $"Most Borrowed book(s) in given period start date : {sDate}, finish date: {fDate} with count {highestCount}";
                 res.Success = true;
                 res.Status = 200;
@@ -266,11 +248,10 @@ namespace Application.Service
 
             return res;
         }
-
         public async Task<ApiResponse<GetBookDto>> BookAvailable(int id)
         {
             ApiResponse<GetBookDto> res = new ApiResponse<GetBookDto>();
-           
+
             var book = await _context.Books.FindAsync(id);
             if (book == null)
             {
@@ -294,13 +275,13 @@ namespace Application.Service
             {
                 int count = _utility.GetAvailableCopy(id);
                 res.Data = _mapper.Map<GetBookDto>(book);
-                res.Message = $"Succes: Book found. No of copy available: {count}";
+                res.Message = $"Success: Book found. No of copy available: {count}";
                 res.Success = true;
                 res.Status = 200;
                 return res;
             }
-      
-          
+
+
         }
     }
 }

@@ -10,13 +10,13 @@ namespace Domain
     {
         public int ReturnId { get; set; }
 
-        [Display(Name = "Book")]
-        public virtual int BookId { get; set; }
-        [Display(Name = "User")]
-        public virtual int UserId { get; set; }
+      
+        public  int BookId { get; set; }
+        public  int UserId { get; set; }
+        public  int IssueId { get; set; }
 
-        [Display(Name = "Issue")]
-        public virtual int IssueId { get; set; }
+        [ForeignKey("IssueId")]
+        public virtual Issue Issues { get; set; }
         public DateTime ReturnDate { get; set; }
     }
 }

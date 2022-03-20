@@ -11,11 +11,17 @@ namespace Domain
    
         public int IssueId { get; set; }
 
-        [Display(Name ="Book")]
-        public virtual int BookId { get; set; }
+       
+        public int BookId { get; set; }
 
-        [Display(Name = "User")]
-        public virtual int UserId { get; set; }
+        [ForeignKey("BookId")]
+        public virtual Book Books { get; set; }
+
+      
+        public  int UserId { get; set; }
+
+        [ForeignKey("UserId")]
+        public virtual User Users { get; set; }
         public DateTime IssueDate { get; set; }
         public DateTime ExpiryDate { get; set; }
        

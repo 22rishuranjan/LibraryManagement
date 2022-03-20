@@ -23,8 +23,7 @@ namespace Application.Service
             _mapper = mapper;
 
         }
-
-        public async Task<ApiResponse<List<GetUserDto>>> AddUser(GetUserDto user)
+        public async Task<ApiResponse<List<GetUserDto>>> AddUser(UpdateUserDto user)
         {
             ApiResponse<List<GetUserDto>> res = new ApiResponse<List<GetUserDto>>();
             User  _user = _mapper.Map<User>(user);
@@ -36,7 +35,6 @@ namespace Application.Service
             res.Status = 201;
             return res;
         }
-
         public async Task<ApiResponse<GetUserDto>> DeleteUser(int id)
         {
             ApiResponse<GetUserDto> res = new ApiResponse<GetUserDto>();
@@ -61,7 +59,6 @@ namespace Application.Service
 
             return res;
         }
-
         public async Task<ApiResponse<GetUserDto>> GetUserById(int id)
         {
             ApiResponse<GetUserDto> res = new ApiResponse<GetUserDto>();
@@ -82,7 +79,6 @@ namespace Application.Service
             res.Status = 200;
             return res;
         }
-
         public async Task<ApiResponse<List<GetUserDto>>> GetUsers()
         {
             ApiResponse<List<GetUserDto>> res = new ApiResponse<List<GetUserDto>>();
@@ -92,7 +88,6 @@ namespace Application.Service
             res.Status = 200;
             return res;
         }
-
         public async Task<ApiResponse<GetUserDto>> UpdateUsers(UpdateUserDto user, int id)
         {
             ApiResponse<GetUserDto> res = new ApiResponse<GetUserDto>();
@@ -116,8 +111,6 @@ namespace Application.Service
             res.Status = 200;
             return res;
         }
-
-
         public async Task<ApiResponse<List<GetUserDto>>> GetUserWithMostIssuedBooks()
         {
 
@@ -165,7 +158,6 @@ namespace Application.Service
 
             return res;
         }
-
         public async Task<ApiResponse<List<GetUserDto>>> GetUserWithMostIssuedBooksByTime(DateTime sDate, DateTime fDate)
         {
 
@@ -213,6 +205,5 @@ namespace Application.Service
 
             return res;
         }
-
     }
 }

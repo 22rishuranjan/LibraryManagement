@@ -18,14 +18,20 @@ namespace API.Controller
     {
 
         private readonly IBook _bookService;
-        //private readonly DataContext _context;
-
-
-        public BookController(IBook bookService) //, DataContext context   ---- used via method dependency injection
+     
+        public BookController(IBook bookService) 
         {
             _bookService = bookService;
-            // _context = context;
         }
+
+        #region CrudAPI
+        /* contains following APIS  
+                a. Get the list of books
+                b. Get book information by bookid
+                c. Create a new Book
+                d. Update information on existing book
+                e. Delete an existing book
+        */
 
         [HttpGet]
         public async Task<IActionResult> Book()
@@ -49,7 +55,7 @@ namespace API.Controller
 
         [HttpPost]
 
-        public async Task<IActionResult> Book(GetBookDto book)
+        public async Task<IActionResult> Book(UpdateBookDto book)
         {
             return HandleResult(await _bookService.AddBook(book));
         }
@@ -59,6 +65,16 @@ namespace API.Controller
         {
             return HandleResult(await _bookService.UpdateBooks(book, id));
         }
+        #endregion
+
+        #region DriverAPI
+
+        /* contains functions for 
+             a. Most issued books
+             b. Most issued books filter by day
+             c. Get other books by user
+             d. no of available copy
+         */
 
         [Route("MostIssued")]
         [Route("MostBorrowed")]
@@ -79,10 +95,6 @@ namespace API.Controller
             return HandleResult(await _bookService.GetMostIssuedBooksByTime(startDate, finishDate));
         }
 
-
-
-
-
         [Route("GetOtherBooks/{bookId}/{userId}")]
         [HttpGet]
         public async Task<IActionResult> GetOtherBooks(int bookId, int userId)
@@ -97,5 +109,6 @@ namespace API.Controller
         {
             return HandleResult(await _bookService.BookAvailable(bookId));
         }
+        #endregion
     }
 }

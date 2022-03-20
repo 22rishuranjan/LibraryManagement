@@ -94,13 +94,6 @@ namespace Runtime.Service
             }
             return res;
         }
-
-
-        //public Task<ApiResponse<BookDto>> DeleteReturns(int id)
-        //{
-        //    throw new NotImplementedException();
-        //}
-
         public async Task<ApiResponse<GetReturnDto>> GetReturnById(int id)
         {
             ApiResponse<GetReturnDto> res = new ApiResponse<GetReturnDto>();
@@ -122,7 +115,6 @@ namespace Runtime.Service
 
             return res;
         }
-
         public async Task<ApiResponse<List<GetReturnDto>>> GetBookReturns()
         {
             ApiResponse<List<GetReturnDto>> res = new ApiResponse<List<GetReturnDto>>();
@@ -134,27 +126,5 @@ namespace Runtime.Service
             return res;
         }
 
-        //public async Task<ApiResponse<GetReturnDto>> UpdateReturns(UpdateBookDto issue, int id)
-        //{
-        //    ApiResponse<GetReturnDto> res = new ApiResponse<GetReturnDto>();
-
-        //    var _issue = await _context.Returns.FindAsync(id);
-        //    if (_issue == null)
-        //    {
-        //        res.Data = null;
-        //        res.Message = "Error: Issue can not be found!";
-        //        res.Success = false;
-        //        res.Status = 404;
-        //        return res;
-        //    }
-
-
-        //    _mapper.Map(issue, _issue);
-        //    await _context.SaveChangesAsync();
-        //    res.Data = _mapper.Map<GetReturnDto>(await _context.Returns.FindAsync(id));
-        //    res.Message = "Success, Book is successfully updated.";
-        //    res.Success = true;
-        //    return res;
-        //}
     }
 }

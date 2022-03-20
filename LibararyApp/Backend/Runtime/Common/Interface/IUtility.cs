@@ -15,9 +15,7 @@ namespace Runtime.Common
         public bool CheckIfBookAvailable(int id);
         public bool CheckIfUserIsEligibleToIssue(int userId, int bookId);
         public UpdateBookDto GetUpdatedBookDto(int id);
-
         public bool CheckIfUserIsEligibleToReturn(int userId, int bookId, int issueId);
-
         public int GetAvailableCopy(int id);
 
 

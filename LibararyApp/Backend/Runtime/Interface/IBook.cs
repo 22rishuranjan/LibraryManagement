@@ -17,7 +17,7 @@ namespace Application.Interface
 
         public Task<ApiResponse<GetBookDto>> GetBookById(int id);
 
-        public Task<ApiResponse<List<GetBookDto>>> AddBook(GetBookDto book);
+        public Task<ApiResponse<List<GetBookDto>>> AddBook(UpdateBookDto book);
 
         public Task<ApiResponse<List<GetBookDto>>> GetMostIssuedBooks();
         public Task<ApiResponse<List<GetBookDto>>> GetOtherBooks(int bookId, int userId);

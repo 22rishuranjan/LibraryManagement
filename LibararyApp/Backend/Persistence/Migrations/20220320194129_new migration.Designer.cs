@@ -10,8 +10,8 @@ using Persistence;
 namespace Persistence.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20220319193710_initial create")]
-    partial class initialcreate
+    [Migration("20220320194129_new migration")]
+    partial class newmigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -40,11 +40,11 @@ namespace Persistence.Migrations
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<bool>("IsAvailable")
+                        .HasColumnType("bit");
+
                     b.Property<string>("Title")
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("isAvailable")
-                        .HasColumnType("bit");
 
                     b.HasKey("BookId");
 
@@ -72,6 +72,10 @@ namespace Persistence.Migrations
 
                     b.HasKey("IssueId");
 
+                    b.HasIndex("BookId");
+
+                    b.HasIndex("UserId");
+
                     b.ToTable("Issues");
                 });
 
@@ -96,12 +100,14 @@ namespace Persistence.Migrations
 
                     b.HasKey("ReturnId");
 
+                    b.HasIndex("IssueId");
+
                     b.ToTable("Returns");
                 });
 
             modelBuilder.Entity("Domain.User", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("UserId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
@@ -124,9 +130,39 @@ namespace Persistence.Migrations
                     b.Property<string>("mobile")
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("Id");
+                    b.HasKey("UserId");
 
                     b.ToTable("Users");
+                });
+
+            modelBuilder.Entity("Domain.Issue", b =>
+                {
+                    b.HasOne("Domain.Book", "Books")
+                        .WithMany()
+                        .HasForeignKey("BookId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Domain.User", "Users")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Books");
+
+                    b.Navigation("Users");
+                });
+
+            modelBuilder.Entity("Domain.Return", b =>
+                {
+                    b.HasOne("Domain.Issue", "Issues")
+                        .WithMany()
+                        .HasForeignKey("IssueId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Issues");
                 });
 #pragma warning restore 612, 618
         }

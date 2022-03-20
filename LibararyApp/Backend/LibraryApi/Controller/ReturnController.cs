@@ -19,13 +19,19 @@ namespace API.Controller
 
         private readonly IReturn _returnService;
        
-
-
         public ReturnController(IReturn returnService) 
         {
             _returnService = returnService;
     
         }
+
+
+        #region CrudAPI
+        /* contains following APIS  
+              a. Get the list of returns of books
+              b. Get retuns of books by Id
+              c. Create a new return of books
+       */
 
         [HttpGet]
         public async Task<IActionResult> Return()
@@ -39,26 +45,14 @@ namespace API.Controller
         {
             return HandleResult(await _returnService.GetReturnById(id));
         }
-
-
-        //[HttpDelete("{id}")]
-        //public async Task<IActionResult> DeleteIssue(int id)
-        //{
-        //    return HandleResult(await _issueService.DeleteBooks(id));
-        //}
-
+   
         [HttpPost]
 
         public async Task<IActionResult> Return(AddReturnDto ret)
         {
             return HandleResult(await _returnService.AddBookReturn(ret));
         }
-
-        //[HttpPut("{id}")]
-        //public async Task<IActionResult> Issue(int id, UpdateIssueDto act)
-        //{
-        //    return HandleResult(await _bookService.UpdateBooks(act, id));
-        //}
+        #endregion
 
     }
 }
