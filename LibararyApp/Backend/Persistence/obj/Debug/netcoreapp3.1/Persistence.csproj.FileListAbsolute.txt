@@ -1,0 +1,16 @@
+D:\Rishu Code\RebTelChallenge\LibararyApp\Backend\Persistence\bin\Debug\netcoreapp3.1\Persistence.deps.json
+D:\Rishu Code\RebTelChallenge\LibararyApp\Backend\Persistence\bin\Debug\netcoreapp3.1\Persistence.runtimeconfig.json
+D:\Rishu Code\RebTelChallenge\LibararyApp\Backend\Persistence\bin\Debug\netcoreapp3.1\Persistence.runtimeconfig.dev.json
+D:\Rishu Code\RebTelChallenge\LibararyApp\Backend\Persistence\bin\Debug\netcoreapp3.1\Persistence.dll
+D:\Rishu Code\RebTelChallenge\LibararyApp\Backend\Persistence\bin\Debug\netcoreapp3.1\Persistence.pdb
+D:\Rishu Code\RebTelChallenge\LibararyApp\Backend\Persistence\bin\Debug\netcoreapp3.1\Domain.dll
+D:\Rishu Code\RebTelChallenge\LibararyApp\Backend\Persistence\bin\Debug\netcoreapp3.1\Domain.pdb
+D:\Rishu Code\RebTelChallenge\LibararyApp\Backend\Persistence\obj\Debug\netcoreapp3.1\Persistence.csproj.AssemblyReference.cache
+D:\Rishu Code\RebTelChallenge\LibararyApp\Backend\Persistence\obj\Debug\netcoreapp3.1\Persistence.GeneratedMSBuildEditorConfig.editorconfig
+D:\Rishu Code\RebTelChallenge\LibararyApp\Backend\Persistence\obj\Debug\netcoreapp3.1\Persistence.AssemblyInfoInputs.cache
+D:\Rishu Code\RebTelChallenge\LibararyApp\Backend\Persistence\obj\Debug\netcoreapp3.1\Persistence.AssemblyInfo.cs
+D:\Rishu Code\RebTelChallenge\LibararyApp\Backend\Persistence\obj\Debug\netcoreapp3.1\Persistence.csproj.CoreCompileInputs.cache
+D:\Rishu Code\RebTelChallenge\LibararyApp\Backend\Persistence\obj\Debug\netcoreapp3.1\Persistence.csproj.CopyComplete
+D:\Rishu Code\RebTelChallenge\LibararyApp\Backend\Persistence\obj\Debug\netcoreapp3.1\Persistence.dll
+D:\Rishu Code\RebTelChallenge\LibararyApp\Backend\Persistence\obj\Debug\netcoreapp3.1\Persistence.pdb
+D:\Rishu Code\RebTelChallenge\LibararyApp\Backend\Persistence\obj\Debug\netcoreapp3.1\Persistence.genruntimeconfig.cache
