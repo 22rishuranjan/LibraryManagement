@@ -1,0 +1,14 @@
+D:\Rishu Code\RebTelChallenge\Starter\Starter\bin\Debug\netcoreapp3.1\Starter.exe
+D:\Rishu Code\RebTelChallenge\Starter\Starter\bin\Debug\netcoreapp3.1\Starter.deps.json
+D:\Rishu Code\RebTelChallenge\Starter\Starter\bin\Debug\netcoreapp3.1\Starter.runtimeconfig.json
+D:\Rishu Code\RebTelChallenge\Starter\Starter\bin\Debug\netcoreapp3.1\Starter.runtimeconfig.dev.json
+D:\Rishu Code\RebTelChallenge\Starter\Starter\bin\Debug\netcoreapp3.1\Starter.dll
+D:\Rishu Code\RebTelChallenge\Starter\Starter\bin\Debug\netcoreapp3.1\Starter.pdb
+D:\Rishu Code\RebTelChallenge\Starter\Starter\obj\Debug\netcoreapp3.1\Starter.GeneratedMSBuildEditorConfig.editorconfig
+D:\Rishu Code\RebTelChallenge\Starter\Starter\obj\Debug\netcoreapp3.1\Starter.AssemblyInfoInputs.cache
+D:\Rishu Code\RebTelChallenge\Starter\Starter\obj\Debug\netcoreapp3.1\Starter.AssemblyInfo.cs
+D:\Rishu Code\RebTelChallenge\Starter\Starter\obj\Debug\netcoreapp3.1\Starter.csproj.CoreCompileInputs.cache
+D:\Rishu Code\RebTelChallenge\Starter\Starter\obj\Debug\netcoreapp3.1\Starter.dll
+D:\Rishu Code\RebTelChallenge\Starter\Starter\obj\Debug\netcoreapp3.1\Starter.pdb
+D:\Rishu Code\RebTelChallenge\Starter\Starter\obj\Debug\netcoreapp3.1\Starter.genruntimeconfig.cache
+D:\Rishu Code\RebTelChallenge\Starter\Starter\obj\Debug\netcoreapp3.1\Starter.csproj.AssemblyReference.cache

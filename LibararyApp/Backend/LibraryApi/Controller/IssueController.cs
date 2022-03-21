@@ -25,7 +25,6 @@ namespace API.Controller
         
         }
 
-
         #region CrudAPI
         /* contains following APIS  
                a. Get the list of issues
@@ -59,14 +58,14 @@ namespace API.Controller
               b. Get the list of issues filtered by book id   
         */
 
-        [HttpGet("GetIssueByUserId/{id}")]
+        [HttpGet("GetIssueByUserId/{id:int}")]
         public async Task<IActionResult> GetIssueByUserId(int id)
         {
             return HandleResult(await _issueService.GetIssueByUserId(id));
         }
 
         
-        [HttpGet("GetIssueByBookId/{id}")]
+        [HttpGet("GetIssueByBookId/{id:int}")]
         public async Task<IActionResult> GetIssueByBookId(int id)
         {
             return HandleResult(await _issueService.GetIssueByBookId(id));

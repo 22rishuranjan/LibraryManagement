@@ -12,5 +12,7 @@ namespace Application.Interface
         public Task<ApiResponse<List<GetReturnDto>>> AddBookReturn(AddReturnDto issue);
         public Task<ApiResponse<List<GetReturnDto>>> GetBookReturns();
         public Task<ApiResponse<GetReturnDto>> GetReturnById(int id);
+        public Task<ApiResponse<GetBookDto>> GetReadRate(int id);
+   
     }
 }

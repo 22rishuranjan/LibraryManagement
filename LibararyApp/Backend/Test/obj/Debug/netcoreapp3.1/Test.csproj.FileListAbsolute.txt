@@ -86,7 +86,6 @@ D:\Rishu Code\RebTelChallenge\LibararyApp\Backend\Test\bin\Debug\netcoreapp3.1\z
 D:\Rishu Code\RebTelChallenge\LibararyApp\Backend\Test\bin\Debug\netcoreapp3.1\zh-Hant\Microsoft.TestPlatform.CommunicationUtilities.resources.dll
 D:\Rishu Code\RebTelChallenge\LibararyApp\Backend\Test\bin\Debug\netcoreapp3.1\zh-Hant\Microsoft.TestPlatform.CrossPlatEngine.resources.dll
 D:\Rishu Code\RebTelChallenge\LibararyApp\Backend\Test\bin\Debug\netcoreapp3.1\zh-Hant\Microsoft.VisualStudio.TestPlatform.Common.resources.dll
-D:\Rishu Code\RebTelChallenge\LibararyApp\Backend\Test\obj\Debug\netcoreapp3.1\Test.csproj.AssemblyReference.cache
 D:\Rishu Code\RebTelChallenge\LibararyApp\Backend\Test\obj\Debug\netcoreapp3.1\Test.GeneratedMSBuildEditorConfig.editorconfig
 D:\Rishu Code\RebTelChallenge\LibararyApp\Backend\Test\obj\Debug\netcoreapp3.1\Test.AssemblyInfoInputs.cache
 D:\Rishu Code\RebTelChallenge\LibararyApp\Backend\Test\obj\Debug\netcoreapp3.1\Test.AssemblyInfo.cs

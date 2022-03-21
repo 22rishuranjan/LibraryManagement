@@ -84,9 +84,9 @@ namespace API.Controller
             return HandleResult(await _bookService.GetMostIssuedBooks());
         }
 
-        [Route("MostIssued/{days}")]
-        [Route("MostBorrowed/{days}")]
-        [Route("MostIssuedByTime/{days}")]
+        [Route("MostIssued/{days:int}")]
+        [Route("MostBorrowed/{days:int}")]
+        [Route("MostIssuedByTime/{days:int}")]
         [HttpGet]
         public async Task<IActionResult> MostIssued(int days)
         {
@@ -95,20 +95,21 @@ namespace API.Controller
             return HandleResult(await _bookService.GetMostIssuedBooksByTime(startDate, finishDate));
         }
 
-        [Route("GetOtherBooks/{bookId}/{userId}")]
+        [Route("GetOtherBooks/{bookId:int}/{userId:int}")]
         [HttpGet]
         public async Task<IActionResult> GetOtherBooks(int bookId, int userId)
         {
             return HandleResult(await _bookService.GetOtherBooks(bookId, userId));
         }
 
-        [Route("Available/{bookId}")]
-        [Route("BookAvailable/{bookId}")]
+        [Route("Available/{bookId:int}")]
+        [Route("BookAvailable/{bookId:int}")]
         [HttpGet]
         public async Task<IActionResult> BookAvailable(int bookId)
         {
             return HandleResult(await _bookService.BookAvailable(bookId));
         }
         #endregion
+
     }
 }

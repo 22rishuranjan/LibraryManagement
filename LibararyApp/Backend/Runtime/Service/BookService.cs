@@ -26,7 +26,7 @@ namespace Application.Service
             _mapper = mapper;
             _utility = utility;
         }
-
+        #region Functions for Crud Api
         public async Task<ApiResponse<List<GetBookDto>>> AddBook(UpdateBookDto book)
         {
             ApiResponse<List<GetBookDto>> res = new ApiResponse<List<GetBookDto>>();
@@ -118,6 +118,11 @@ namespace Application.Service
             res.Success = true;
             return res;
         }
+        #endregion
+
+
+        #region Functions for Driver Api
+
         public async Task<ApiResponse<List<GetBookDto>>> GetMostIssuedBooks()
         {
 
@@ -187,7 +192,7 @@ namespace Application.Service
             if (listBookDto.Count > 0)
             {
                 res.Data = listBookDto;
-                res.Message = "List fectched!!";
+                res.Message = "Success: List of other books issued to the user fetched.";
                 res.Success = true;
                 res.Status = 200;
             }
@@ -283,5 +288,7 @@ namespace Application.Service
 
 
         }
+
+        #endregion
     }
 }

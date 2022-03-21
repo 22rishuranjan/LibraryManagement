@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 
 namespace Persistence
 {
@@ -15,7 +16,7 @@ namespace Persistence
             if (!context.Users.Any())
             {
 
-
+                context.Database.ExecuteSqlRaw("DBCC CHECKIDENT('Users', RESEED, 0)");
                 var users = new List<User>
                 {
                     new User
@@ -88,22 +89,22 @@ namespace Persistence
             if (!context.Books.Any())
             {
 
-
+                context.Database.ExecuteSqlRaw("DBCC CHECKIDENT('Books', RESEED, 0)");
                 var books = new List<Book>
                 {
-                    new Book
+                     new Book
                     {
                         //Id = 101,
                         Title = "DAA",
                         Description = "Design and Algorithms",
                         Author = "M Martin",
                         IsAvailable = true,
-                        Count = 1,
-                        Area = "Computer Science"
+                        Count = 3,
+                        Area = "Computer Science",
+                        Page = 200
 
                     },
-
-                    new Book
+                     new Book
                     {
                         //Id = 101,
                         Title = "Rich Dad Poor Dad",
@@ -111,7 +112,8 @@ namespace Persistence
                         Author = "Robert T. Kiyosaki",
                         IsAvailable = true,
                         Count = 2,
-                        Area = "Investment"
+                        Area = "Investment",
+                        Page = 250
 
                     },
                      new Book
@@ -121,23 +123,24 @@ namespace Persistence
                         Description = "When mysterious letters start arriving on his doorstep, Harry Potter has never heard of Hogwarts School of Witchcraft and Wizardry.",
                         Author = "J. K. Rowling",
                         IsAvailable = true,
-                        Count = 1,
-                        Area = "Fantasy, Magic"
+                        Count = 10,
+                        Area = "Fantasy, Magic",
+                        Page = 250
 
                     },
-                      new Book
+                     new Book
                     {
                         //Id = 101,
                         Title = "Harry Potter and the Chamber of Secrets",
                         Description = "Throughout the summer holidays after his first year at Hogwarts School of Witchcraft and Wizardry, Harry Potter has been receiving sinister warnings from a..",
                         Author = "J. K. Rowling",
                         IsAvailable = true,
-                        Count = 1,
-                        Area = "Fantasy, Magic"
+                        Count = 2,
+                        Area = "Fantasy, Magic",
+                        Page = 400
 
                     },
-
-                         new Book
+                     new Book
                     {
                         //Id = 101,
                         Title = "The Shining",
@@ -145,17 +148,110 @@ namespace Persistence
                         Author = " Stephen King",
                         IsAvailable = true,
                         Count = 5,
-                        Area = "Horror"
+                        Area = "Horror",
+                        Page = 100
+
+                    },
+                };
+
+                //await context.Users.AddRangeAsync(users);
+                //await context.SaveChangesAsync();
+                await context.BulkInsertAsync(books);
+
+            }
+
+            if (!context.Issues.Any())
+            {
+                context.Database.ExecuteSqlRaw("DBCC CHECKIDENT('Issues', RESEED,0)");
+
+                var issue = new List<Issue>
+                {
+                     new Issue
+                    { 
+                        BookId = 1,
+                        UserId = 1,
+                        IssueDate = DateTime.Now.AddDays(-35).ToLocalTime(),
+                        ExpiryDate=  DateTime.Now.AddDays(-20).ToLocalTime()
 
                     },
 
+                       new Issue
+                    {
+                        BookId = 2,
+                        UserId = 2,
+                        IssueDate = DateTime.Now.AddDays(-135).ToLocalTime(),
+                        ExpiryDate=  DateTime.Now.AddDays(-120).ToLocalTime()
+
+                    },
+                           new Issue
+                    {
+                        BookId = 3,
+                        UserId = 3,
+                        IssueDate = DateTime.Now.AddDays(-2).ToLocalTime(),
+                        ExpiryDate=  DateTime.Now.AddDays(13).ToLocalTime()
+
+                    },
+
+                                new Issue
+                    {
+                        BookId = 1,
+                        UserId = 4,
+                        IssueDate = DateTime.Now.AddDays(-1).ToLocalTime(),
+                        ExpiryDate=  DateTime.Now.AddDays(-14).ToLocalTime()
+
+                    },
+
+                                     new Issue
+                    {
+                        BookId = 1,
+                        UserId = 5,
+                        IssueDate = DateTime.Now.AddDays(1).ToLocalTime(),
+                        ExpiryDate=  DateTime.Now.AddDays(16).ToLocalTime()
+
+                    }
+
+                };
+
+                //await context.Users.AddRangeAsync(users);
+                //await context.SaveChangesAsync();
+                await context.BulkInsertAsync(issue);
+
+            }
+
+            if (!context.Returns.Any())
+            {
+
+                context.Database.ExecuteSqlRaw("DBCC CHECKIDENT('Returns', RESEED, 0)");
+                var returns = new List<Return>
+                {
+                     new Return
+                    {
+                        BookId = 1,
+                        UserId = 1,
+                        IssueId =1,
+                        ReturnDate = DateTime.Now.ToLocalTime()
+                    },
+                      new Return
+                    {
+                        BookId = 2,
+                        UserId = 2,
+                        IssueId =2,
+                        ReturnDate = DateTime.Now.ToLocalTime()
+                    },
+                        new Return
+                    {
+                        BookId = 3,
+                        UserId = 3,
+                        IssueId =3,
+                        ReturnDate = DateTime.Now.ToLocalTime()
+                    },
 
 
                 };
 
                 //await context.Users.AddRangeAsync(users);
                 //await context.SaveChangesAsync();
-                await context.BulkInsertAsync(books);
+                await context.BulkInsertAsync(returns);
 
             }
         }
