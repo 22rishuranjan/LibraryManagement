@@ -13,5 +13,6 @@ namespace Domain
         public int Count { get; set; }
         public string Author { get; set; }
         public string Area { get; set; }
+        public int Page { get; set; }
     }
 }

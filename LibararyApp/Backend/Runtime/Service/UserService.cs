@@ -23,6 +23,8 @@ namespace Application.Service
             _mapper = mapper;
 
         }
+
+        #region Functions for Crud Api
         public async Task<ApiResponse<List<GetUserDto>>> AddUser(UpdateUserDto user)
         {
             ApiResponse<List<GetUserDto>> res = new ApiResponse<List<GetUserDto>>();
@@ -111,6 +113,9 @@ namespace Application.Service
             res.Status = 200;
             return res;
         }
+        #endregion
+
+        #region Functions for Driver Api
         public async Task<ApiResponse<List<GetUserDto>>> GetUserWithMostIssuedBooks()
         {
 
@@ -200,10 +205,8 @@ namespace Application.Service
                 res.Success = true;
                 res.Status = 200;
             }
-
-
-
             return res;
         }
+        #endregion
     }
 }

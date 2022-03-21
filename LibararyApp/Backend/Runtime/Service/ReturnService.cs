@@ -2,6 +2,7 @@
 using Application.Interface;
 using AutoMapper;
 using Domain;
+using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using Persistence;
 using Runtime.Common;
@@ -28,6 +29,8 @@ namespace Runtime.Service
 
 
         }
+
+        #region Functions for Crud Api
         public async Task<ApiResponse<List<GetReturnDto>>> AddBookReturn(AddReturnDto bookReturn)
         {
 
@@ -98,8 +101,8 @@ namespace Runtime.Service
         {
             ApiResponse<GetReturnDto> res = new ApiResponse<GetReturnDto>();
 
-            var issue = await _context.Returns.FindAsync(id);
-            if (issue == null)
+            var returnRecord = await _context.Returns.FindAsync(id);
+            if (returnRecord == null)
             {
                 res.Data = null;
                 res.Message = "Error: Return id can not be found!";
@@ -108,7 +111,7 @@ namespace Runtime.Service
                 return res;
 
             }
-            res.Data = _mapper.Map<GetReturnDto>(issue);
+            res.Data = _mapper.Map<GetReturnDto>(returnRecord);
             res.Message = "Return found!!";
             res.Success = true;
             res.Status = 200;
@@ -125,6 +128,68 @@ namespace Runtime.Service
 
             return res;
         }
+        #endregion
+
+        #region Functions for Driver Api
+   
+        public async Task<ApiResponse<GetBookDto>> GetReadRate(int id)
+        {
+            ApiResponse<GetBookDto> res = new ApiResponse<GetBookDto>();
+
+            var returnRecord = await _context.Returns.FindAsync(id);
+            if (returnRecord == null)
+            {
+                res.Data = null;
+                res.Message = "Error: Return id can not be found!";
+                res.Success = false;
+                res.Status = 404;
+                return res;
+            }
+
+
+
+            var returns = await _context.Returns.Where(r => r.ReturnId == id).FirstOrDefaultAsync();
+            var issue = await _context.Issues.Where(r => r.IssueId == returns.IssueId).FirstOrDefaultAsync();
+            var book = await _context.Books.Where(r => r.BookId == returns.BookId).FirstOrDefaultAsync();
+
+         
+
+
+            //*** :Checks if the book exists
+            if (!_utility.CheckIfBookExist(book.BookId))
+            {
+                res.Data = null;
+                res.Message = "Error: Book not found";
+                res.Success = false;
+                res.Status = 200;
+                return res;
+            }
+
+            DateTime issueDate = issue.IssueDate;
+            DateTime returnDate = returns.ReturnDate;
+
+
+            TimeSpan ts = returnDate - issueDate;
+            var noOfDays = Math.Round(ts.TotalDays) == 0 ? 1 : ts.TotalDays;
+
+            var rate = Math.Round( book.Page / Math.Round(noOfDays),1);
+
+            //var rate =  _context.Databse.ExecuteRawSql(@"select b.bookid,b.page/IIF(dateDiff(day,i.IssueDate,r.ReturnDate)=0,1,dateDiff(day,i.IssueDate,r.ReturnDate)) from issues i 
+            //                inner join returns r on i.issueid = r.returnid
+            //                inner join books b on b.bookid = r.BookId
+            //                where returnid = @id", new SqlParameter("@id", id));
+
+
+    
+            res.Data = _mapper.Map<GetBookDto>(book);
+
+            res.Message = $"Read rate for book- {book.Title} is : {rate} pages per day";
+            res.Success = true;
+            res.Status = 200;
+
+            return res;
+        }
+        #endregion
 
     }
 }

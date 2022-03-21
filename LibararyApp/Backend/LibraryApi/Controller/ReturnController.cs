@@ -54,5 +54,16 @@ namespace API.Controller
         }
         #endregion
 
+        #region DriverApi
+
+
+        [HttpGet("ReadRate/{id}")]
+        public async Task<IActionResult> GetReadRate(int id)
+        {
+            return HandleResult(await _returnService.GetReadRate(id));
+        }
+
+        #endregion
+
     }
 }

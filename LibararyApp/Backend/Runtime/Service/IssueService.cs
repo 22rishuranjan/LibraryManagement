@@ -27,6 +27,8 @@ namespace Runtime.Service
             _mapper = mapper;
             _utility = utility;
         }
+
+        #region Functions for Crud Api
         public async Task<ApiResponse<List<GetIssueDto>>> AddBookIssue(AddIssueDto issue)
         {
 
@@ -139,6 +141,19 @@ namespace Runtime.Service
 
             return res;
         }
+        public async Task<ApiResponse<List<GetIssueDto>>> GetIssues()
+        {
+            ApiResponse<List<GetIssueDto>> res = new ApiResponse<List<GetIssueDto>>();
+            res.Data = await _context.Issues.Select(c => _mapper.Map<GetIssueDto>(c)).ToListAsync();
+            res.Message = "List fectched!!";
+            res.Success = true;
+            res.Status = 200;
+
+            return res;
+        }
+        #endregion
+
+        #region Functions for Driver Api
         public async Task<ApiResponse<List<GetIssueDto>>> GetIssueByBookId(int id)
         {
          
@@ -184,15 +199,8 @@ namespace Runtime.Service
 
             return res;
         }
-        public async Task<ApiResponse<List<GetIssueDto>>> GetIssues()
-        {
-            ApiResponse<List<GetIssueDto>> res = new ApiResponse<List<GetIssueDto>>();
-            res.Data = await _context.Issues.Select(c => _mapper.Map<GetIssueDto>(c)).ToListAsync();
-            res.Message = "List fectched!!";
-            res.Success = true;
-            res.Status = 200;
 
-            return res;
-        }
+        #endregion
+
     }
 }

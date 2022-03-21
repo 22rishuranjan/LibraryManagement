@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "0VNvavLKdy1J/hL99gYI10OOWJP6qk20n5gYz3C0fJVjj22os9pRD5+aiMMc1UwIDrP6Ox8hHL38JmSojO6+pA==",
+  "dgSpecHash": "tlJ6OUc8sV7JGdJtuT8jlq704AWILylSg87ZQ/LayW2JtW2DbRF+0HZYFjfHrCj6F5bDq7rACd3KsSyGbAvL0A==",
   "success": true,
   "projectFilePath": "D:\\Rishu Code\\RebTelChallenge\\LibararyApp\\Backend\\LibraryApi\\API.csproj",
   "expectedPackageFiles": [
@@ -70,7 +70,8 @@
     "C:\\Users\\Rishu\\.nuget\\packages\\system.text.encoding.codepages\\4.7.0\\system.text.encoding.codepages.4.7.0.nupkg.sha512",
     "C:\\Users\\Rishu\\.nuget\\packages\\system.text.encodings.web\\5.0.0\\system.text.encodings.web.5.0.0.nupkg.sha512",
     "C:\\Users\\Rishu\\.nuget\\packages\\system.text.json\\5.0.0\\system.text.json.5.0.0.nupkg.sha512",
-    "C:\\Users\\Rishu\\.nuget\\packages\\system.windows.extensions\\4.7.0\\system.windows.extensions.4.7.0.nupkg.sha512"
+    "C:\\Users\\Rishu\\.nuget\\packages\\system.windows.extensions\\4.7.0\\system.windows.extensions.4.7.0.nupkg.sha512",
+    "C:\\Users\\Rishu\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\3.1.22\\microsoft.netcore.app.host.win-x64.3.1.22.nupkg.sha512"
   ],
   "logs": [
     {
