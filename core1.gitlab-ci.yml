@@ -1,4 +1,0 @@
-build
-  stage:build
-    script:
-      dotnet build

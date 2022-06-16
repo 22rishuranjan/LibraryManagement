@@ -1,27 +1,26 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Rishu Code\\RebTelChallenge\\LibararyApp\\Backend\\Runtime\\Runtime.csproj": {}
+    "/Volumes/badmonster/Development/MyGit/dotnet/LibraryManagement/LibararyApp/Backend/Runtime/Runtime.csproj": {}
   },
   "projects": {
-    "D:\\Rishu Code\\RebTelChallenge\\LibararyApp\\Backend\\Domain\\Domain.csproj": {
+    "/Volumes/badmonster/Development/MyGit/dotnet/LibraryManagement/LibararyApp/Backend/Domain/Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Rishu Code\\RebTelChallenge\\LibararyApp\\Backend\\Domain\\Domain.csproj",
+        "projectUniqueName": "/Volumes/badmonster/Development/MyGit/dotnet/LibraryManagement/LibararyApp/Backend/Domain/Domain.csproj",
         "projectName": "Domain",
-        "projectPath": "D:\\Rishu Code\\RebTelChallenge\\LibararyApp\\Backend\\Domain\\Domain.csproj",
-        "packagesPath": "C:\\Users\\Rishu\\.nuget\\packages\\",
-        "outputPath": "D:\\Rishu Code\\RebTelChallenge\\LibararyApp\\Backend\\Domain\\obj\\",
+        "projectPath": "/Volumes/badmonster/Development/MyGit/dotnet/LibraryManagement/LibararyApp/Backend/Domain/Domain.csproj",
+        "packagesPath": "/Users/badmonster/.nuget/packages/",
+        "outputPath": "/Volumes/badmonster/Development/MyGit/dotnet/LibraryManagement/LibararyApp/Backend/Domain/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Rishu\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "/Users/badmonster/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "/usr/local/share/dotnet/library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -49,41 +48,50 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[3.1.10, 3.1.10]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[3.1.0, 3.1.0]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/6.0.301/RuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\Rishu Code\\RebTelChallenge\\LibararyApp\\Backend\\Persistence\\Persistence.csproj": {
+    "/Volumes/badmonster/Development/MyGit/dotnet/LibraryManagement/LibararyApp/Backend/Persistence/Persistence.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Rishu Code\\RebTelChallenge\\LibararyApp\\Backend\\Persistence\\Persistence.csproj",
+        "projectUniqueName": "/Volumes/badmonster/Development/MyGit/dotnet/LibraryManagement/LibararyApp/Backend/Persistence/Persistence.csproj",
         "projectName": "Persistence",
-        "projectPath": "D:\\Rishu Code\\RebTelChallenge\\LibararyApp\\Backend\\Persistence\\Persistence.csproj",
-        "packagesPath": "C:\\Users\\Rishu\\.nuget\\packages\\",
-        "outputPath": "D:\\Rishu Code\\RebTelChallenge\\LibararyApp\\Backend\\Persistence\\obj\\",
+        "projectPath": "/Volumes/badmonster/Development/MyGit/dotnet/LibraryManagement/LibararyApp/Backend/Persistence/Persistence.csproj",
+        "packagesPath": "/Users/badmonster/.nuget/packages/",
+        "outputPath": "/Volumes/badmonster/Development/MyGit/dotnet/LibraryManagement/LibararyApp/Backend/Persistence/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Rishu\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "/Users/badmonster/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "/usr/local/share/dotnet/library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "D:\\Rishu Code\\RebTelChallenge\\LibararyApp\\Backend\\Domain\\Domain.csproj": {
-                "projectPath": "D:\\Rishu Code\\RebTelChallenge\\LibararyApp\\Backend\\Domain\\Domain.csproj"
+              "/Volumes/badmonster/Development/MyGit/dotnet/LibraryManagement/LibararyApp/Backend/Domain/Domain.csproj": {
+                "projectPath": "/Volumes/badmonster/Development/MyGit/dotnet/LibraryManagement/LibararyApp/Backend/Domain/Domain.csproj"
               }
             }
           }
@@ -127,44 +135,53 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[3.1.10, 3.1.10]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[3.1.0, 3.1.0]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/6.0.301/RuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\Rishu Code\\RebTelChallenge\\LibararyApp\\Backend\\Runtime\\Runtime.csproj": {
+    "/Volumes/badmonster/Development/MyGit/dotnet/LibraryManagement/LibararyApp/Backend/Runtime/Runtime.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Rishu Code\\RebTelChallenge\\LibararyApp\\Backend\\Runtime\\Runtime.csproj",
+        "projectUniqueName": "/Volumes/badmonster/Development/MyGit/dotnet/LibraryManagement/LibararyApp/Backend/Runtime/Runtime.csproj",
         "projectName": "Runtime",
-        "projectPath": "D:\\Rishu Code\\RebTelChallenge\\LibararyApp\\Backend\\Runtime\\Runtime.csproj",
-        "packagesPath": "C:\\Users\\Rishu\\.nuget\\packages\\",
-        "outputPath": "D:\\Rishu Code\\RebTelChallenge\\LibararyApp\\Backend\\Runtime\\obj\\",
+        "projectPath": "/Volumes/badmonster/Development/MyGit/dotnet/LibraryManagement/LibararyApp/Backend/Runtime/Runtime.csproj",
+        "packagesPath": "/Users/badmonster/.nuget/packages/",
+        "outputPath": "/Volumes/badmonster/Development/MyGit/dotnet/LibraryManagement/LibararyApp/Backend/Runtime/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Rishu\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "/Users/badmonster/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "/usr/local/share/dotnet/library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "D:\\Rishu Code\\RebTelChallenge\\LibararyApp\\Backend\\Domain\\Domain.csproj": {
-                "projectPath": "D:\\Rishu Code\\RebTelChallenge\\LibararyApp\\Backend\\Domain\\Domain.csproj"
+              "/Volumes/badmonster/Development/MyGit/dotnet/LibraryManagement/LibararyApp/Backend/Domain/Domain.csproj": {
+                "projectPath": "/Volumes/badmonster/Development/MyGit/dotnet/LibraryManagement/LibararyApp/Backend/Domain/Domain.csproj"
               },
-              "D:\\Rishu Code\\RebTelChallenge\\LibararyApp\\Backend\\Persistence\\Persistence.csproj": {
-                "projectPath": "D:\\Rishu Code\\RebTelChallenge\\LibararyApp\\Backend\\Persistence\\Persistence.csproj"
+              "/Volumes/badmonster/Development/MyGit/dotnet/LibraryManagement/LibararyApp/Backend/Persistence/Persistence.csproj": {
+                "projectPath": "/Volumes/badmonster/Development/MyGit/dotnet/LibraryManagement/LibararyApp/Backend/Persistence/Persistence.csproj"
               }
             }
           }
@@ -198,12 +215,22 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[3.1.10, 3.1.10]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[3.1.0, 3.1.0]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/6.0.301/RuntimeIdentifierGraph.json"
         }
       }
     }

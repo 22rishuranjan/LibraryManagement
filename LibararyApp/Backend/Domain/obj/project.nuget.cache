@@ -1,8 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "WAMGl4X6yHFu1gj2Bq1tODWSnD+rDFNp88hH9J883a2QX+NiJKzIUWAa9jOQ/K9Z84AqRqYA1n91i5EpQ+9xqg==",
+  "dgSpecHash": "kdm8xja3RepaXDEgxSlpcftN0uqPUWZf9Iz6/qjfoa5t9WGbqOIBz4oV4D6wk5B/g9PkV024wi+4raFws/vKig==",
   "success": true,
-  "projectFilePath": "D:\\Rishu Code\\RebTelChallenge\\LibararyApp\\Backend\\Domain\\Domain.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "/Volumes/badmonster/Development/MyGit/dotnet/LibraryManagement/LibararyApp/Backend/Domain/Domain.csproj",
+  "expectedPackageFiles": [
+    "/Users/badmonster/.nuget/packages/microsoft.aspnetcore.app.ref/3.1.10/microsoft.aspnetcore.app.ref.3.1.10.nupkg.sha512",
+    "/Users/badmonster/.nuget/packages/microsoft.netcore.app.ref/3.1.0/microsoft.netcore.app.ref.3.1.0.nupkg.sha512"
+  ],
   "logs": []
 }

@@ -1,0 +1,46 @@
+#define stages
+stages:
+  - build
+  - test
+  - deploy
+
+#image for dotnet core
+image: mcr.microsoft.com/dotnet/sdk:3.1
+
+#switch to folder which has sln file
+before_script:
+  - "cd LibararyApp/Backend/LibraryApi"
+  - "dotnet restore"
+
+#global variables
+variables:
+  project: "$CI_PROJECT_DIR/LibararyApp/Backend"
+
+#this will be pipeline name, which will be visible on ui
+build app:
+  #order does not matter
+  stage: build
+  variables:
+    build_path: "$CI_PROJECT_DIR/LibraryApi/"
+  script:
+    - echo "build"
+    - echo "$build_path"
+    - dotnet build
+  artifacts:
+    expire_in: 30 mins
+    paths:
+      - build/
+  
+test app:
+  stage: test
+  variables:
+    test_path: "$project/Test/"
+  script:
+    - echo "test"
+    - echo "$test_path"
+    - dotnet test
+  
+deploy app:
+  stage: deploy
+  script:
+     - echo "deploy"
